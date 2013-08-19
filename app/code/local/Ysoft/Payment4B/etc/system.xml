@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<payment>
+			<groups>
+				<payment4b_standard translate="label" module="payment">
+				
+                                       <label>4B</label>
+                                        <frontend_type>text</frontend_type>
+                                        <sort_order>1</sort_order>
+                                        <show_in_default>1</show_in_default>
+                                        <show_in_website>1</show_in_website>
+                                        <show_in_store>1</show_in_store>
+                                        <fields>
+                                                <active translate="label" module="payment">
+							<label>Habilitado</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+                                                </active>
+                                                
+                                                <title translate="label" module="payment">
+                                                        <label>Titulo</label>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>20</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </title>
+
+                                                <allowspecific translate="label" module="payment">
+                                                        <label>Pago para determinados paises</label>
+                                                        <frontend_type>allowspecific</frontend_type>
+                                                        <sort_order>30</sort_order>
+                                                        <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </allowspecific>
+                                                <specificcountry translate="label" module="payment">
+                                                        <label>Pago para paises especificos</label>  
+                                                        <frontend_type>multiselect</frontend_type> 
+                                                        <sort_order>40</sort_order>
+                                                        <source_model>adminhtml/system_config_source_country</source_model>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </specificcountry>
+
+                                                <autoinvoice translate="label">
+                                                        <label>Crear factura automaticamente</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <comment>Solo si el pago es realizado con exito</comment>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>41</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </autoinvoice>
+
+                                                <callbackorder_status translate="label" module="payment">
+                                                        <label>Estado del pedido con un pago correcto</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_order_status</source_model>
+                                                        <sort_order>45</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </callbackorder_status>
+
+                                                <redirect_status translate="label">
+                                                        <label>Estado para pedido al entrar en TPV</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_order_status</source_model>
+                                                        <sort_order>46</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </redirect_status>
+
+                                                <error_status translate="label">
+                                                        <label>Estado para pedido cancelado por 4B</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_order_status</source_model>
+                                                        <sort_order>47</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </error_status>
+
+                                                <merchantnumber translate="label">
+                                                        <label>Clave de Comercio</label>
+                                                        <comment>Identificacion otorgada por 4B al Comercio</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>50</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </merchantnumber>
+
+                                                <sendmailorderconfirmation translate="label">
+                                                        <label>Enviar confirmacion de mail</label>
+                                                        <frontend_type>Select</frontend_type>
+                                                        <sort_order>71</sort_order>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </sendmailorderconfirmation>
+
+                                                <entorno4B translate="label">
+                                                        <label>Entorno Real de trabajo</label>
+
+                                                        <comment><![CDATA[Entorno real: "https://tpv.4b.es/tpvv/teargral.exe"<br> Entorno de Pruebas:"https://tpv2.4b.es/simulador/teargral.exe"]]></comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>140</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </entorno4B>
+                                                
+						<sendmailorderconfirmation translate="label">
+							<label>Enviar confirmacion de mail</label>
+							<frontend_type>Select</frontend_type>
+							<sort_order>71</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sendmailorderconfirmation>
+                                                
+                                        </fields>
+				</payment4b_standard>
+			</groups>
+		</payment>
+	</sections>
+</config>

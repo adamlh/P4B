@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<payment4b_standard_redirect>
+		<reference name="content">
+			<block type="payment4b/standard_redirect" name="redirect" template="payment4b/redirect.phtml"></block>
+		</reference>
+	</payment4b_standard_redirect>
+</layout>

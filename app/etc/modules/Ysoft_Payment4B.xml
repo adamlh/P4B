@@ -1,0 +1,16 @@
+<config>
+	<!-- ... -->
+	<modules>
+		<!-- ... -->
+		<!-- declare YourCompany_NewModule module -->
+		<Ysoft_Payment4B>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+		                <Mage_Payment />
+	                </depends>
+		</Ysoft_Payment4B>
+		<!-- ... -->
+	</modules>
+	<!-- ... -->
+</config>

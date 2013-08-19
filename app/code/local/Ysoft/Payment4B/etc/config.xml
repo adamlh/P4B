@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+        	<!-- declare module's version information -->
+		<Ysoft_Payment4B>
+		<!-- this version number will be used for database upgrades -->
+			<version>1.0</version>
+		</Ysoft_Payment4B>
+	</modules>
+	<global>
+        	<models>
+                	<payment4b>
+                        	<class>Ysoft_Payment4B_Model</class>
+                                <resourceModel>payment4b_mysql4</resourceModel>
+                        </payment4b>
+                        <payment4b_mysql4>
+                        	<class>Ysoft_Payment4B_Model_Mysql4</class>
+                                <entities>
+                                	<api_debug><table>4b_api_debug</table></api_debug>
+                                </entities>
+                        </payment4b_mysql4>
+                </models>
+                <resources>
+                	<payment4b_setup>
+                        	<setup>
+                                	<module>Ysoft_Payment4B</module>
+                                        <class>Ysoft_Payment4B_Model_Mysql4_Setup</class>
+                                </setup>
+                                <connection>
+                                	<use>core_setup</use>
+                                </connection>
+                        </payment4b_setup>
+                        <payment4b_write>
+                        	<connection>
+                                	<use>core_write</use>
+                                </connection>
+                        </payment4b_write>
+                        <payment4b_read>
+                        	<connection>
+                                	<use>core_read</use>
+                                </connection>
+                        </payment4b_read>
+                </resources>
+                <blocks>
+                	<payment4b><class>Ysoft_Payment4B_Block</class></payment4b>
+                </blocks>
+	</global>
+	
+	<frontend>
+        	<secure_url>
+                	<payment4b_standard>/payment4b/standard/</payment4b_standard>
+                </secure_url>
+                
+                <routers>
+                        <payment4b>
+                                <use>standard</use>
+                                <args>
+                                        <module>Ysoft_Payment4B</module>
+                                        <frontName>payment4b</frontName>
+                                </args>
+                        </payment4b>   
+                </routers>
+
+                <layout>
+                        <updates>
+                                <payment4b_standard_redirect>
+                                        <file>payment4b.xml</file>
+                                </payment4b_standard_redirect>
+                        </updates>
+                </layout>
+		<translate>
+		    <modules>
+		        <Ysoft_Payment4B>
+		            <files>
+		                <default>Ysoft_Payment4B.csv</default>
+		            </files>
+		        </Ysoft_Payment4B>
+		    </modules>
+		</translate>        
+        </frontend>	
+        
+	<default>
+                <payment>
+                        <payment4b_standard>
+                                <active>1</active>
+                                <model>Ysoft_Payment4B_Model_Standard</model>
+                                <order_status>pending</order_status>
+                                <redirect_status>pending</redirect_status>
+                                <error_status>canceled</error_status>
+                                <title>4B</title>
+				<sendmailorderconfirmation>1</sendmailorderconfirmation>
+                                <allowspecific>0</allowspecific>
+                                <autoinvoice>0</autoinvoice>
+                                <transaction_type>0</transaction_type>
+                        </payment4b_standard>
+                </payment>
+        </default>
+
+</config>
